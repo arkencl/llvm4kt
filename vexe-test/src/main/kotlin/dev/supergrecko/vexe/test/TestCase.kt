@@ -3,7 +3,7 @@ package dev.supergrecko.vexe.test
 import java.io.File
 
 public class TestCase(
-    public val name: String,
+    public var name: String,
     public val execute: TestCase.() -> Unit
 ) {
     internal var onTearDown: (() -> Unit)? = null

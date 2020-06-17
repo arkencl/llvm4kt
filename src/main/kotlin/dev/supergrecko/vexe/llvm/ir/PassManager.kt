@@ -6,10 +6,10 @@ import dev.supergrecko.vexe.llvm.internal.contracts.Validatable
 import org.bytedeco.llvm.LLVM.LLVMPassManagerRef
 import org.bytedeco.llvm.global.LLVM
 
-public class PassManager internal constructor() :
+public class PassManager public constructor() :
     AutoCloseable, Validatable, Disposable,
     ContainsReference<LLVMPassManagerRef> {
-    public override lateinit var ref: LLVMPassManagerRef
+    public override var ref = LLVM.LLVMCreatePassManager()
     public override var valid: Boolean = true
 
     public constructor(pass: LLVMPassManagerRef) : this() {

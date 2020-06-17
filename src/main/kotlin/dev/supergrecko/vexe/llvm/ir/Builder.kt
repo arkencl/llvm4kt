@@ -1559,7 +1559,7 @@ public class Builder public constructor(
          * To prevent binding the result to a variable, either omit the
          * [variable] argument, or set it to `""`
          *
-         * @see LLVM.LLVMBuildCall2
+         * @see LLVM.LLVMBuildCall
          */
         public fun createCall(
             function: FunctionValue,
@@ -1567,9 +1567,8 @@ public class Builder public constructor(
             variable: String = ""
         ): CallInstruction {
             val args = PointerPointer(*arguments.map { it.ref }.toTypedArray())
-            val inst = LLVM.LLVMBuildCall2(
+            val inst = LLVM.LLVMBuildCall(
                 ref,
-                function.getType().ref,
                 function.ref,
                 args,
                 arguments.size,
